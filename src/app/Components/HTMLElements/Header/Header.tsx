@@ -1,17 +1,18 @@
 import React from 'react';
 import { Typography } from "../../UI/Typography/Typography";
-import { Content } from '../../../Data/content';
 import { BlockElement } from "../../UI/BlockLevel/BlockElement";
-import { cn } from '../../../Data/content';
 
-const { h1Children, h1Styles } = Content.headerComponentConfig;
-const { textColor, parentContainerStyles } = Content.globalStyles;
-const headerParentStyles = cn(parentContainerStyles, 'basis-14 flex items-center');
+const headerParentStyles = 'text-slate-950 px-4 py-4 bg-white basis-14 flex items-center';
+const headerComponentConfig = {
+  headerH1: 'Page Name',
+  headerH1Styles: 'text-2xl font-bold'
+};
+const { headerH1, headerH1Styles } = headerComponentConfig;
 
 const HTMLHeaderComponent = () => {
   return (
-    <BlockElement variant="header" className={cn(textColor, headerParentStyles)}>
-      <Typography variant="h1" className={h1Styles}>{h1Children}</Typography>
+    <BlockElement variant="header" className={headerParentStyles}>
+      <Typography variant="h1" className={headerH1Styles}>{headerH1}</Typography>
     </BlockElement>
   );
 };

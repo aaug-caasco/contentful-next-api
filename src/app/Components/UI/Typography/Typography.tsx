@@ -1,6 +1,4 @@
 import React from 'react';
-
-import {cn} from '../../../Data/content';
 import { ITypographyProps } from './Typography.d';
 
 export const Typography = ({
@@ -26,5 +24,5 @@ export const Typography = ({
     elements[variant as keyof typeof elements] :
     'p';
 
-  return <Element className={cn(className, 'mb-4')} role={role} aria-label={ariaLabel}>{children}</Element>;
+  return <Element className={`${className} mb-4`} role={role} aria-label={ariaLabel}>{children}</Element>;
 };

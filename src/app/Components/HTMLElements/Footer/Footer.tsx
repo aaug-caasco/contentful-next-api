@@ -1,18 +1,22 @@
 import React from 'react';
 import { Typography } from "../../UI/Typography/Typography";
-import { Content } from '../../../Data/content';
 import { BlockElement } from '../../UI/BlockLevel/BlockElement';
-import { cn } from '../../../Data/content'
 
-const { copyrightYear, paragraphStyles, siteName } = Content.footerComponentConfig.copyright;
-const { textColor, parentContainerStyles } = Content.globalStyles;
-const footerParentStyles = cn(parentContainerStyles, 'basis-14 flex items-center');
+const year = new Date().getFullYear();
+const footerParentStyles = 'text-slate-950 px-4 py-4 bg-white basis-14 flex items-center';
+const footerComponentConfig = {
+  copyright: {
+    copyrightYear: year,
+    paragraphStyles: 'text-xs',
+    siteName: 'Some Website. All Rights Reserved.',
+  }
+};
+const { copyrightYear, paragraphStyles, siteName } = footerComponentConfig.copyright;
 const copyrightCopy = <>&copy; {copyrightYear} {siteName}</>;
-
 
 const HTMLFooterComponent = () => {
   return (
-    <BlockElement variant="footer" className={cn(textColor, footerParentStyles)}>
+    <BlockElement variant="footer" className={footerParentStyles}>
       <Typography variant="p" className={paragraphStyles}>{copyrightCopy}</Typography>
     </BlockElement>
   );
