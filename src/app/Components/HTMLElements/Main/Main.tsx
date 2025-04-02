@@ -2,8 +2,7 @@ import React from "react";
 import { Typography } from "../../UI/Typography/Typography";
 import { BlockElement } from "../../UI/BlockLevel/BlockElement";
 
-const mainParentStyles = 'text-slate-950 flex-1 px-4 py-4 bg-white';
-
+const mainParentStyles = 'text-slate-950 flex-1 px-4 py-4 bg-white border-b-1 border-slate-200';
 const mainComponentConfig = {
   h2TitleConfig: {
     h2Children: 'H2 Heading',

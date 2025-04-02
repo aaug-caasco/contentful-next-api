@@ -2,11 +2,10 @@ import React from 'react';
 import { Typography } from "../../UI/Typography/Typography";
 import { BlockElement } from '../../UI/BlockLevel/BlockElement';
 
-const year = new Date().getFullYear();
 const footerParentStyles = 'text-slate-950 px-4 py-4 bg-white basis-14 flex items-center';
 const footerComponentConfig = {
   copyright: {
-    copyrightYear: year,
+    copyrightYear: new Date().getFullYear(),
     paragraphStyles: 'text-xs',
     siteName: 'Some Website. All Rights Reserved.',
   }

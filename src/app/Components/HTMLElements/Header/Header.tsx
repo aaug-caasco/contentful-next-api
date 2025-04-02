@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography } from "../../UI/Typography/Typography";
 import { BlockElement } from "../../UI/BlockLevel/BlockElement";
 
-const headerParentStyles = 'text-slate-950 px-4 py-4 bg-white basis-14 flex items-center';
+const headerParentStyles = 'text-slate-950 px-4 py-4 bg-white basis-14 flex items-center border-b-1 border-slate-200';
 const headerComponentConfig = {
   headerH1: 'Page Name',
   headerH1Styles: 'text-2xl font-bold'
