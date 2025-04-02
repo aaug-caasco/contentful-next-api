@@ -1,15 +1,19 @@
 import React from 'react';
 import { Typography } from "../../UI/Typography/Typography";
 import { Content } from '../../../Data/content';
+import { BlockElement } from "../../UI/BlockLevel/BlockElement";
+import { cn } from '../../../Data/content';
 
-const headerParentStyles = 'bg-red-400 pt-6 p-2 basis-14 flex items-center';
 const { h1Children, h1Styles } = Content.headerComponentConfig;
+const { textColor, parentContainerStyles } = Content.globalStyles;
+const headerParentStyles = cn(parentContainerStyles, 'basis-14 flex items-center');
 
 const HTMLHeaderComponent = () => {
   return (
-    <header className={headerParentStyles}>
+    <BlockElement variant="header" className={cn(textColor, headerParentStyles)}>
       <Typography variant="h1" className={h1Styles}>{h1Children}</Typography>
-    </header>
+    </BlockElement>
   );
 };
+
 export default HTMLHeaderComponent;

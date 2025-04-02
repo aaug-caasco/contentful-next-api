@@ -1,32 +1,26 @@
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
-const year = new Date().getFullYear();
+import { HeaderContent } from './Header'
+import { MainContent } from './Main';
+import { FooterContent } from './Footer';
+import { Styles } from './Styles';
 
+/**
+ * Consolidated content object that merges various content sections and styles.
+ *
+ * @constant
+ * @type {Object}
+ * @property {Object} HeaderContent - Content related to the header section.
+ * @property {Object} MainContent - Content related to the main section.
+ * @property {Object} FooterContent - Content related to the footer section.
+ * @property {Object} Styles - Styling information for the content.
+ */
 export const Content = {
-  abc: 'foo',
-  xyz: 'bar',
-  headerComponentConfig: {
-    h1Children: 'Page Name',
-    h1Styles: 'text-2xl font-bold'
-  },
-  mainComponentConfig: {
-    h2TitleConfig: {
-      h2Children: 'H2 Heading',
-      h2Styles: 'text-2xl font-bold'
-    },
-    paragraphConfig: {
-      paragraphChildren: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      paragraphStyles: 'text-base'
-    }
-  },
-  footerComponentConfig: {
-    copyright: {
-      copyrightYear: year,
-      paragraphStyles: 'text-base',
-      siteName: 'Some Website',
-    }
-  }
+  ...HeaderContent,
+  ...MainContent,
+  ...FooterContent,
+  ...Styles
 };
 
 /**
