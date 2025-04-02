@@ -1,13 +1,9 @@
 import React from 'react';
 import { Typography } from "../../UI/Typography/Typography";
+import { Content } from '../../../Data/content';
 
 const headerParentStyles = 'bg-red-400 pt-6 p-2 basis-14 flex items-center';
-const headerComponentConfig = {
-  h1Children: 'Page Name',
-  h1Styles: 'text-2xl font-bold'
-};
-
-const { h1Children, h1Styles } = headerComponentConfig;
+const { h1Children, h1Styles } = Content.headerComponentConfig;
 
 const HTMLHeaderComponent = () => {
   return (
