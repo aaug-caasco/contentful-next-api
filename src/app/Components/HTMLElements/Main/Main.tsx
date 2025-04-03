@@ -1,8 +1,8 @@
 import React from "react";
-import { Typography } from "../../UI/Typography/Typography";
-import { BlockElement } from "../../UI/BlockLevel/BlockElement";
+import { Typography } from "@/app/Components/UI/Typography/Typography";
+import { BlockElement } from "@/app/Components/UI/BlockLevel/BlockElement";
 
-const mainParentStyles = 'text-slate-950 flex-1 px-4 py-4 bg-white border-b-1 border-slate-200';
+const mainParentStyles = 'flex-1 p-4 bg-white border-b-1 border-slate-200';
 const mainComponentConfig = {
   h2TitleConfig: {
     h2Children: 'H2 Heading',

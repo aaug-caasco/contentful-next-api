@@ -2,10 +2,10 @@ import React from 'react';
 import { Typography } from "../../UI/Typography/Typography";
 import { BlockElement } from "../../UI/BlockLevel/BlockElement";
 
-const headerParentStyles = 'text-slate-950 px-4 py-4 bg-white basis-14 flex items-center border-b-1 border-slate-200';
+const headerParentStyles = 'p-4 bg-white basis-14 flex items-center border-b-1 border-slate-200';
 const headerComponentConfig = {
-  headerH1: 'Page Name',
-  headerH1Styles: 'text-2xl font-bold'
+  headerH1: 'Some Website',
+  headerH1Styles: 'text-4xl font-bold'
 };
 const { headerH1, headerH1Styles } = headerComponentConfig;
 
