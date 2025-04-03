@@ -1,3 +1,4 @@
 export interface IMainProps {
-  foo?: string;
+  containerStyles?: string;
+  mainChildren?: React.ReactNode[];
 }

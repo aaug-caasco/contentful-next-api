@@ -1,3 +1,4 @@
 export interface IHeaderProps {
-  foo?: string;
+  containerStyles?: string;
+  headerChildren: React.ReactNode[];
 }

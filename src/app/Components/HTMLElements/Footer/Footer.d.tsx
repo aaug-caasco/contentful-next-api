@@ -1,3 +1,4 @@
 export interface IFooterProps {
-  foo?: string;
+  containerStyles?: string;
+  footerChildren: React.ReactNode[];
 }

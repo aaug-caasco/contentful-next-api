@@ -1,29 +1,10 @@
 import React from "react";
-import { Typography } from "@/app/Components/UI/Typography/Typography";
 import { BlockElement } from "@/app/Components/UI/BlockLevel/BlockElement";
 import { IMainProps } from "./Main.d";
 
-const mainParentStyles = 'flex-1 p-4 bg-white border-b-1 border-slate-200';
-const mainComponentConfig = {
-  h2TitleConfig: {
-    h2Children: 'H2 Heading',
-    h2Styles: 'text-2xl font-bold'
-  },
-  paragraphConfig: {
-    paragraphChildren: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    paragraphStyles: 'text-base'
-  }
-};
-
-const { h2Children, h2Styles } = mainComponentConfig.h2TitleConfig;
-const { paragraphChildren, paragraphStyles } = mainComponentConfig.paragraphConfig;
-
-const HTMLMainComponent = ({}: IMainProps) => {
+const HTMLMainComponent = ({ containerStyles, mainChildren }: IMainProps) => {
   return (
-    <BlockElement variant="main" className={mainParentStyles}>
-      <Typography variant="h2" className={h2Styles}>{h2Children}</Typography>
-      <Typography variant="p" className={paragraphStyles}>{paragraphChildren}</Typography>
-    </BlockElement>
+    <BlockElement variant="main" className={containerStyles}>{mainChildren}</BlockElement>
   );
 };
 
