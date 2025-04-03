@@ -1,10 +1,11 @@
 /**
- * Defines the props for the Typography component.
- *
- * @param variant - The HTML element to use for the typography, such as 'h1', 'h2', 'h3', 'span', 'p', 'strong' or 'sub'.
- * @param className - An optional CSS class name to apply to the component.
- * @param children - The content to be rendered within the Typography component.
- * @param ariaLabel - An optional ARIA label to apply to the component.
+ * Props for the Typography component.
+ * @interface ITypographyProps
+ * @property {('h1' | 'h2' | 'h3' | 'span' | 'p' | 'strong' | 'sub' | undefined)} [variant] - Specifies the HTML tag to be used for the typography element. Defaults to undefined.
+ * @property {string} [className] - Optional CSS class name(s) to apply to the typography element.
+ * @property {React.ReactNode} [children] - The content to be rendered inside the typography element.
+ * @property {string} [ariaLabel] - Optional ARIA label for accessibility purposes.
+ * @property {string} [role] - Optional ARIA role for the typography element.
  */
 export interface ITypographyProps {
   variant?: 'h1' | 'h2' | 'h3' | 'span' | 'p' | 'strong' | 'sub' | undefined;

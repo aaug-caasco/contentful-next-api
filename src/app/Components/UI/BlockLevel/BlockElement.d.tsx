@@ -1,11 +1,12 @@
 /**
- * Defines the props for a block-level UI element component.
- *
- * @param variant - The HTML element type to use for the block-level element, such as 'footer', 'section', 'article', etc.
- * @param className - An optional CSS class name to apply to the block-level element.
- * @param children - The React nodes to render as the content of the block-level element.
- * @param id - An optional unique identifier for the block-level element.
- * @param role - An optional ARIA role to apply to the block-level element.
+ * Props for the `BlockElement` component.
+ * @interface IBlockElementProps
+ * @property {('footer' | 'section' | 'article' | 'ol' | 'div' | 'main' | 'header' | 'ul' | 'aside' | 'nav' | 'dialog' | undefined)} [variant] - Specifies the HTML tag to be used for the block element. Defaults to `div` if not provided.
+ * @property {string} [className] - Optional CSS class name(s) to apply to the block element.
+ * @property {React.ReactNode} [children] - The content to be rendered inside the block element.
+ * @property {string} [id] - Optional unique identifier for the block element.
+ * @property {string} [role] - ARIA role attribute to define the accessibility role of the block element.
+ * @property {(event: React.MouseEvent<HTMLDivElement>) => void} [onClick] - Optional click event handler for the block element.
  */
 export interface IBlockElementProps {
   variant?: 'footer' | 'section' | 'article' | 'ol' | 'div' | 'main' | 'header' | 'ul' | 'aside' | 'nav' | 'dialog' | undefined;

@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography } from "@/app/Components/UI/Typography/Typography";
 import { BlockElement } from "@/app/Components/UI/BlockLevel/BlockElement";
+import { IMainProps } from "./Main.d";
 
 const mainParentStyles = 'flex-1 p-4 bg-white border-b-1 border-slate-200';
 const mainComponentConfig = {
@@ -17,7 +18,7 @@ const mainComponentConfig = {
 const { h2Children, h2Styles } = mainComponentConfig.h2TitleConfig;
 const { paragraphChildren, paragraphStyles } = mainComponentConfig.paragraphConfig;
 
-const HTMLMainComponent = () => {
+const HTMLMainComponent = ({}: IMainProps) => {
   return (
     <BlockElement variant="main" className={mainParentStyles}>
       <Typography variant="h2" className={h2Styles}>{h2Children}</Typography>
