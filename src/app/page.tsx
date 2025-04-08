@@ -3,6 +3,7 @@ import * as contentful from 'contentful';
 import { Typography } from "./Components/UI/Typography/Typography";
 import Header from "./Components/HTMLElements/Header/Header";
 import Main from "./Components/HTMLElements/Main/Main";
+import CountryList from "./Components/HTMLElements/CountryList/CountryList";
 import Footer from "./Components/HTMLElements/Footer/Footer";
 
 const pageContentConfig = {
@@ -53,6 +54,7 @@ export default async function Home() {
       <React.Fragment key={index}>
         <Typography key={`h2-${index}`} variant="h2" className={item.titleStyles?.toString()}>{String(item.titleLabel)}</Typography>
         <Typography key={`p-${index}`} variant="p" className={item.paragraphStyles?.toString()}>{String(item.paragraphString)}</Typography>
+        <CountryList containerStyles={item.countryListStyles?.toString()} countryListChildren={item.countryListItems} />
       </React.Fragment>
     ))
   ];
