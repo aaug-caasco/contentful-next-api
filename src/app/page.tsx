@@ -39,10 +39,11 @@ export default async function Home() {
     return entries.items.map(item => item.fields);
   };
 
-  const [pageHeaderItems, pageMainItems, pageFooterItems] = await Promise.all([
+  const [pageHeaderItems, pageMainItems, pageFooterItems, islandComponent] = await Promise.all([
     fetchContent('pageHeader'),
     fetchContent('mainContent'),
     fetchContent('pageFooter'),
+    fetchContent('islandComponent'),
   ]);
 
   const headerChildren = [
@@ -56,7 +57,7 @@ export default async function Home() {
       <React.Fragment key={index}>
         <Typography key={`h2-${index}`} variant="h2" className={item.titleStyles?.toString()}>{String(item.titleLabel)}</Typography>
         <Typography key={`p-${index}`} variant="p" className={item.paragraphStyles?.toString()}>{String(item.paragraphString)}</Typography>
-        <IslandList listNamesData={allIslands} apiUrl={item.countryApi?.toString() || ''} />
+        <IslandList listNamesData={allIslands} apiUrl={islandComponent[0] || ''} />
       </React.Fragment>
     ))
   ];

@@ -1,4 +1,4 @@
 export interface IIslandListProps {
   listNamesData: string[];
-  apiUrl: string;
+  apiUrl: string[];
 }

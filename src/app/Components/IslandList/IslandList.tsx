@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Fragment } from 'react';
+import React from 'react';
 import { useEffect, useState } from 'react';
 import { IIslandListProps } from './IslandList.d';
 
@@ -18,7 +18,7 @@ export default function IslandList({ listNamesData, apiUrl }: IIslandListProps) 
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    fetch(apiUrl)
+    fetch(apiUrl.countryApi)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -33,7 +33,7 @@ export default function IslandList({ listNamesData, apiUrl }: IIslandListProps) 
         setError(error);
         setLoading(false);
       });
-  }, [apiUrl]);
+  }, [apiUrl.countryApi]);
 
   if (loading) return <p>Loading data...</p>;
   if (error) return <p>Error fetching data: {error.message}</p>;
@@ -44,15 +44,15 @@ export default function IslandList({ listNamesData, apiUrl }: IIslandListProps) 
         {data?.data
           .filter(item => listNamesData.includes(item.country))
           .map((item, index) => {
-            console.log(listNamesData);
+
             return (
               <>
-              <li key={index}>
-                <p>{item.country}</p>
-                <p>{item.iso3}</p>
-                <p>{item.cities.join(', ')}</p>
-              </li>
-              <hr />
+                <h3>{'Country: ' + item.country} 🏝️</h3>
+
+                <li key={index} className='border-b border-slate-300 py-3 mb-3'>
+                  <p>{'Iso3: ' + item.iso3}</p>
+                  <p>{'Cities: ' + item.cities.join(', ')}</p>
+                </li>
               </>
             );
           })}
