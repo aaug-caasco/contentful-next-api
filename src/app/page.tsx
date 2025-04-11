@@ -46,7 +46,7 @@ export default async function Home() {
     fetchContent('islandComponent'),
   ]);
 
-  const countryApiUrl = islandComponent[0].countryApi;
+  const { countryApi, componentName } = islandComponent[0];
 
   const headerChildren = [
     pageHeaderItems.map((item, index) => (
@@ -59,10 +59,9 @@ export default async function Home() {
       <React.Fragment key={index}>
         <Typography key={`h2-${index}`} variant="h2" className={item.titleStyles?.toString()}>{String(item.titleLabel)}</Typography>
         <Typography key={`p-${index}`} variant="p" className={item.paragraphStyles?.toString()}>{String(item.paragraphString)}</Typography>
-        <IslandList listNamesData={allIslands} apiUrl={typeof countryApiUrl === 'string' ? countryApiUrl : ''} />
+        <IslandList componentHeader={String(componentName)} listNamesData={allIslands} apiUrl={typeof countryApi === 'string' ? countryApi : ''} />
       </React.Fragment>
-    ))
-  ];
+    ))  ];
 
   const footerChildren = [
     pageFooterItems.map((item) => (

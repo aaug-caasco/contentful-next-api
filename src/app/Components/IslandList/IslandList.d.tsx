@@ -1,6 +1,7 @@
 export interface IIslandListProps {
   listNamesData: string[];
   apiUrl: string;
+  componentHeader: string;
 }
 
 export interface IPostProps {

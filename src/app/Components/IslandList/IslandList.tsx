@@ -1,10 +1,17 @@
 "use client";
 
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { BlockElement } from '../UI/BlockLevel/BlockElement';
+import { Typography } from '../UI/Typography/Typography';
 import { IIslandListProps, IPostProps } from './IslandList.d';
 
-export default function IslandList({ listNamesData, apiUrl }: IIslandListProps) {
+const networkErrorMessage = 'Network response was not ok';
+const loadingMessage = <>Loading data&hellip;</>;
+const fetchErrorMessage = <>Error fetching data:</>;
+const listItemsClasses = 'bg-white shadow-md rounded-lg hover:shadow-lg transition-shadow duration-300';
+const listAnchorClasses = 'text-blue-600 hover:text-blue-800 font-semibold w-full h-full block p-4'
+
+export default function IslandList({ listNamesData, apiUrl, componentHeader }: IIslandListProps) {
   const [data, setData] = useState<IPostProps | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
@@ -13,7 +20,7 @@ export default function IslandList({ listNamesData, apiUrl }: IIslandListProps) 
     fetch(apiUrl)
       .then((response) => {
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error(networkErrorMessage);
         }
         return response.json();
       })
@@ -27,26 +34,21 @@ export default function IslandList({ listNamesData, apiUrl }: IIslandListProps) 
       });
   }, [apiUrl]);
 
-  if (loading) return <p>Loading data...</p>;
-  if (error) return <p>Error fetching data: {error.message}</p>;
+  if (loading) return <Typography variant='p'>{loadingMessage}</Typography>;
+  if (error) return <Typography variant='p'>{fetchErrorMessage} {error.message}</Typography>;
+
+  const listItemData = data?.data.filter(item => listNamesData.includes(item.country)).map((item, index) => {
+    return (
+      <li key={index} className={listItemsClasses}>
+        <a href={`/${item.iso3}`} className={listAnchorClasses}>{`${item.country} | ${item.iso3}`} 🏝️</a>
+      </li>
+    );
+  });
 
   return (
     <>
-      <ul>
-        {data?.data
-          .filter(item => listNamesData.includes(item.country))
-          .map((item, index) => {
-
-            return (
-              <>
-
-                <li key={index} className='border-b border-slate-300 py-3 mb-3 last:border-none'>
-                  {`${item.country} | ${item.iso3}`} 🏝️
-                </li>
-              </>
-            );
-          })}
-      </ul>
+      <Typography variant='h3' className='mb-4'>{componentHeader}</Typography>
+      <BlockElement variant="ul" className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4'>{listItemData}</BlockElement>
     </>
   );
 }
